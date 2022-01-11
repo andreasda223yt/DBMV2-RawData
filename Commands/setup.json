@@ -1,0 +1,1153 @@
+{
+  "name": "setup",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "xLkqh",
+  "actions": [
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "question.support",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Server Data"
+    },
+    {
+      "channel": "8",
+      "varName": "Channel",
+      "message": "",
+      "buttons": [
+        {
+          "name": "General enquiry!",
+          "type": "SUCCESS",
+          "id": "msg-button-8293e57",
+          "row": "",
+          "url": "",
+          "emoji": "❔",
+          "mode": "PERSISTENT",
+          "time": "",
+          "actions": [
+            {
+              "server": "0",
+              "varName": "",
+              "dataName": "ticket-report",
+              "changeType": "1",
+              "value": "1",
+              "name": "Control Server Data"
+            },
+            {
+              "server": "0",
+              "varName": "",
+              "dataName": "ticket-report",
+              "defaultVal": "0",
+              "storage": "1",
+              "varName2": "new-ticket",
+              "name": "Store Server Data"
+            },
+            {
+              "channelName": "Question-${tempVars(\"new-ticket\")}",
+              "topic": "",
+              "position": "",
+              "storage": "1",
+              "varName": "new-channel",
+              "categoryID": "912469509586169907",
+              "reason": "",
+              "name": "Create Text Channel"
+            },
+            {
+              "storage": "3",
+              "varName": "new-channel",
+              "permission": "VIEW_CHANNEL",
+              "state": "1",
+              "reason": "",
+              "name": "Set Channel Permissions"
+            },
+            {
+              "channel": "3",
+              "varName": "new-channel",
+              "member": "1",
+              "varName2": "",
+              "permission": "VIEW_CHANNEL",
+              "state": "0",
+              "reason": "",
+              "name": "Set Member Channel Perms"
+            },
+            {
+              "channel": "5",
+              "varName": "new-channel",
+              "message": "${member}",
+              "buttons": [
+                {
+                  "name": "Close",
+                  "type": "DANGER",
+                  "id": "msg-button-8b8f3fe",
+                  "row": "",
+                  "url": "",
+                  "emoji": "🚫",
+                  "mode": "PERSISTENT",
+                  "time": "",
+                  "actions": [
+                    {
+                      "channel": "0",
+                      "varName": "",
+                      "message": "",
+                      "buttons": [
+                        {
+                          "name": "Yes",
+                          "type": "DANGER",
+                          "id": "msg-button-c2cf5e9",
+                          "row": "",
+                          "url": "",
+                          "emoji": "✅",
+                          "mode": "PERSONAL",
+                          "time": "",
+                          "actions": [
+                            {
+                              "channel": "0",
+                              "varName": "",
+                              "info": "2",
+                              "storage": "1",
+                              "varName2": "channel_NAME",
+                              "name": "Store Channel Info"
+                            },
+                            {
+                              "channel": "103",
+                              "varName": "912647756802301962",
+                              "message": "",
+                              "buttons": [],
+                              "selectMenus": [],
+                              "attachments": [],
+                              "embeds": [
+                                {
+                                  "title": "Ticket Closed",
+                                  "url": "",
+                                  "color": "ec4245",
+                                  "timestamp": "false",
+                                  "imageUrl": "",
+                                  "thumbUrl": "",
+                                  "description": "A report ticket was closed.",
+                                  "fields": [
+                                    {
+                                      "name": "Closed By",
+                                      "value": "${member}",
+                                      "inline": "true"
+                                    },
+                                    {
+                                      "name": "Reason",
+                                      "value": "No Reason Given!\n*Closed with button*",
+                                      "inline": "true"
+                                    },
+                                    {
+                                      "name": "Transcript",
+                                      "value": "Not Done",
+                                      "inline": "true"
+                                    },
+                                    {
+                                      "name": "Ticket",
+                                      "value": "${tempVars(\"channel_NAME\")}",
+                                      "inline": "true"
+                                    }
+                                  ],
+                                  "author": "",
+                                  "authorUrl": "",
+                                  "authorIcon": "",
+                                  "footerText": "",
+                                  "footerIconUrl": ""
+                                }
+                              ],
+                              "reply": true,
+                              "ephemeral": false,
+                              "tts": false,
+                              "overwrite": false,
+                              "dontSend": false,
+                              "editMessage": "0",
+                              "editMessageVarName": "",
+                              "storage": "0",
+                              "varName2": "",
+                              "name": "Send Message"
+                            },
+                            {
+                              "storage": "0",
+                              "varName": "",
+                              "reason": "",
+                              "name": "Delete Channel"
+                            }
+                          ]
+                        }
+                      ],
+                      "selectMenus": [],
+                      "attachments": [],
+                      "embeds": [
+                        {
+                          "title": "Do you want to close the ticket?",
+                          "url": "",
+                          "color": "ec4245",
+                          "timestamp": "false",
+                          "imageUrl": "",
+                          "thumbUrl": "",
+                          "description": "Are you sure you want to close the ticket?",
+                          "fields": [],
+                          "author": "",
+                          "authorUrl": "",
+                          "authorIcon": "",
+                          "footerText": "",
+                          "footerIconUrl": ""
+                        }
+                      ],
+                      "reply": true,
+                      "ephemeral": true,
+                      "tts": false,
+                      "overwrite": false,
+                      "dontSend": false,
+                      "editMessage": "0",
+                      "editMessageVarName": "",
+                      "storage": "1",
+                      "varName2": "message",
+                      "name": "Send Message"
+                    }
+                  ]
+                },
+                {
+                  "name": "claim",
+                  "type": "SUCCESS",
+                  "id": "msg-button-a2723ba",
+                  "row": "",
+                  "url": "",
+                  "emoji": "✅",
+                  "mode": "PERSISTENT",
+                  "time": "",
+                  "actions": [
+                    {
+                      "member": "1",
+                      "varName": "",
+                      "role": "101",
+                      "varName2": "912320551232630794",
+                      "branch": {
+                        "iftrue": "2",
+                        "iffalse": "0",
+                        "iftrueVal": "4"
+                      },
+                      "name": "Check If Member has Role"
+                    },
+                    {
+                      "channel": "0",
+                      "varName": "",
+                      "message": "You can't claim tickets!",
+                      "buttons": [],
+                      "selectMenus": [],
+                      "attachments": [],
+                      "embeds": [],
+                      "reply": true,
+                      "ephemeral": true,
+                      "tts": false,
+                      "overwrite": false,
+                      "dontSend": false,
+                      "editMessage": "0",
+                      "editMessageVarName": "",
+                      "storage": "0",
+                      "varName2": "",
+                      "name": "Send Message"
+                    },
+                    {
+                      "name": "End Action Sequence"
+                    },
+                    {
+                      "storage": "3",
+                      "varName": "new-channel",
+                      "permission": "SEND_MESSAGES",
+                      "state": "1",
+                      "reason": "",
+                      "name": "Set Channel Permissions"
+                    },
+                    {
+                      "channel": "0",
+                      "varName": "",
+                      "member": "1",
+                      "varName2": "",
+                      "permission": "SEND_MESSAGES",
+                      "state": "0",
+                      "reason": "",
+                      "name": "Set Member Channel Perms"
+                    },
+                    {
+                      "storage": "0",
+                      "varName": "",
+                      "channelType": "0",
+                      "toChange": "5",
+                      "newState": "912469624589807657",
+                      "name": "Edit Channel"
+                    },
+                    {
+                      "channel": "0",
+                      "varName": "",
+                      "message": "",
+                      "buttons": [],
+                      "selectMenus": [],
+                      "attachments": [],
+                      "embeds": [
+                        {
+                          "title": "Ticket Claimed",
+                          "url": "",
+                          "color": "ec4245",
+                          "timestamp": "false",
+                          "imageUrl": "",
+                          "thumbUrl": "",
+                          "description": "${member} claimed the ticket!",
+                          "fields": [],
+                          "author": "",
+                          "authorUrl": "",
+                          "authorIcon": "",
+                          "footerText": "",
+                          "footerIconUrl": ""
+                        }
+                      ],
+                      "reply": true,
+                      "ephemeral": false,
+                      "tts": false,
+                      "overwrite": false,
+                      "dontSend": false,
+                      "editMessage": "0",
+                      "editMessageVarName": "",
+                      "storage": "0",
+                      "varName2": "",
+                      "name": "Send Message"
+                    },
+                    {
+                      "storage": "0",
+                      "varName": "",
+                      "type": "findButton",
+                      "searchValue": "msg-button-a2723ba",
+                      "name": "Remove Buttons and Selects"
+                    },
+                    {
+                      "member": "0",
+                      "varName": "",
+                      "dataName": "support.claimed",
+                      "changeType": "1",
+                      "value": "1",
+                      "name": "Control Member Data"
+                    },
+                    {
+                      "member": "0",
+                      "varName": "",
+                      "dataName": "question.support",
+                      "changeType": "1",
+                      "value": "1",
+                      "name": "Control Member Data"
+                    },
+                    {
+                      "channel": "103",
+                      "varName": "912647756802301962",
+                      "message": "",
+                      "buttons": [],
+                      "selectMenus": [],
+                      "attachments": [],
+                      "embeds": [
+                        {
+                          "title": "Ticket Claimed",
+                          "url": "",
+                          "color": "5865f2",
+                          "timestamp": "false",
+                          "imageUrl": "",
+                          "thumbUrl": "",
+                          "description": "${tempVars(\"new-channel\")} was claimed by ${member}!",
+                          "fields": [],
+                          "author": "",
+                          "authorUrl": "",
+                          "authorIcon": "",
+                          "footerText": "",
+                          "footerIconUrl": ""
+                        }
+                      ],
+                      "reply": true,
+                      "ephemeral": false,
+                      "tts": false,
+                      "overwrite": false,
+                      "dontSend": false,
+                      "editMessage": "0",
+                      "editMessageVarName": "",
+                      "storage": "0",
+                      "varName2": "",
+                      "name": "Send Message"
+                    }
+                  ]
+                }
+              ],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Question enquiry!",
+                  "url": "",
+                  "color": "5865f2",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "Thank you for contacting support.\nPlease describe your issue and await a response.\n",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "channel": "103",
+              "varName": "912647756802301962",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "New Ticket",
+                  "url": "",
+                  "color": "16CF00",
+                  "timestamp": "true",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "${member} (${member.tag}) made a ticket!",
+                  "fields": [
+                    {
+                      "name": "Ticket",
+                      "value": "${tempVars(\"new-channel\")}",
+                      "inline": "false"
+                    }
+                  ],
+                  "author": "General enquiry!",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            }
+          ]
+        },
+        {
+          "name": "Report a bot/user!",
+          "type": "DANGER",
+          "id": "msg-button-4583220",
+          "row": "",
+          "url": "",
+          "emoji": "⚠️",
+          "mode": "PERSISTENT",
+          "time": "",
+          "actions": [
+            {
+              "server": "0",
+              "varName": "",
+              "dataName": "ticket-report",
+              "changeType": "1",
+              "value": "1",
+              "name": "Control Server Data"
+            },
+            {
+              "server": "0",
+              "varName": "",
+              "dataName": "ticket-report",
+              "defaultVal": "0",
+              "storage": "1",
+              "varName2": "new-ticket",
+              "name": "Store Server Data"
+            },
+            {
+              "channelName": "report-${tempVars(\"new-ticket\")}",
+              "topic": "",
+              "position": "",
+              "storage": "1",
+              "varName": "new-channel",
+              "categoryID": "912469509586169907",
+              "reason": "",
+              "name": "Create Text Channel"
+            },
+            {
+              "storage": "3",
+              "varName": "new-channel",
+              "permission": "VIEW_CHANNEL",
+              "state": "1",
+              "reason": "",
+              "name": "Set Channel Permissions"
+            },
+            {
+              "channel": "3",
+              "varName": "new-channel",
+              "member": "1",
+              "varName2": "",
+              "permission": "VIEW_CHANNEL",
+              "state": "0",
+              "reason": "",
+              "name": "Set Member Channel Perms"
+            },
+            {
+              "channel": "5",
+              "varName": "new-channel",
+              "message": "${member}",
+              "buttons": [
+                {
+                  "name": "Close",
+                  "type": "DANGER",
+                  "id": "msg-button-161430a",
+                  "row": "",
+                  "url": "",
+                  "emoji": "🚫",
+                  "mode": "PERSISTENT",
+                  "time": "",
+                  "actions": [
+                    {
+                      "channel": "0",
+                      "varName": "",
+                      "message": "",
+                      "buttons": [
+                        {
+                          "name": "Yes",
+                          "type": "DANGER",
+                          "id": "msg-button-c2cf5e9",
+                          "row": "",
+                          "url": "",
+                          "emoji": "✅",
+                          "mode": "PERSONAL",
+                          "time": "",
+                          "actions": [
+                            {
+                              "channel": "0",
+                              "varName": "",
+                              "info": "2",
+                              "storage": "1",
+                              "varName2": "channel_NAME",
+                              "name": "Store Channel Info"
+                            },
+                            {
+                              "channel": "103",
+                              "varName": "912647756802301962",
+                              "message": "",
+                              "buttons": [],
+                              "selectMenus": [],
+                              "attachments": [],
+                              "embeds": [
+                                {
+                                  "title": "Ticket Closed",
+                                  "url": "",
+                                  "color": "ec4245",
+                                  "timestamp": "false",
+                                  "imageUrl": "",
+                                  "thumbUrl": "",
+                                  "description": "A report ticket was closed.",
+                                  "fields": [
+                                    {
+                                      "name": "Closed By",
+                                      "value": "${member}",
+                                      "inline": "true"
+                                    },
+                                    {
+                                      "name": "Reason",
+                                      "value": "No Reason Given!\n*Closed with button*",
+                                      "inline": "true"
+                                    },
+                                    {
+                                      "name": "Transcript",
+                                      "value": "Not Done",
+                                      "inline": "true"
+                                    },
+                                    {
+                                      "name": "Ticket",
+                                      "value": "${tempVars(\"channel_NAME\")}",
+                                      "inline": "true"
+                                    }
+                                  ],
+                                  "author": "",
+                                  "authorUrl": "",
+                                  "authorIcon": "",
+                                  "footerText": "",
+                                  "footerIconUrl": ""
+                                }
+                              ],
+                              "reply": true,
+                              "ephemeral": false,
+                              "tts": false,
+                              "overwrite": false,
+                              "dontSend": false,
+                              "editMessage": "0",
+                              "editMessageVarName": "",
+                              "storage": "0",
+                              "varName2": "",
+                              "name": "Send Message"
+                            },
+                            {
+                              "storage": "0",
+                              "varName": "",
+                              "reason": "",
+                              "name": "Delete Channel"
+                            }
+                          ]
+                        }
+                      ],
+                      "selectMenus": [],
+                      "attachments": [],
+                      "embeds": [
+                        {
+                          "title": "Do you want to close the ticket?",
+                          "url": "",
+                          "color": "ec4245",
+                          "timestamp": "false",
+                          "imageUrl": "",
+                          "thumbUrl": "",
+                          "description": "Are you sure you want to close the ticket?",
+                          "fields": [],
+                          "author": "",
+                          "authorUrl": "",
+                          "authorIcon": "",
+                          "footerText": "",
+                          "footerIconUrl": ""
+                        }
+                      ],
+                      "reply": true,
+                      "ephemeral": true,
+                      "tts": false,
+                      "overwrite": false,
+                      "dontSend": false,
+                      "editMessage": "0",
+                      "editMessageVarName": "",
+                      "storage": "1",
+                      "varName2": "message",
+                      "name": "Send Message"
+                    }
+                  ]
+                },
+                {
+                  "name": "claim",
+                  "type": "SUCCESS",
+                  "id": "msg-button-0f2dbfa",
+                  "row": "",
+                  "url": "",
+                  "emoji": "✅",
+                  "mode": "PERSISTENT",
+                  "time": "",
+                  "actions": [
+                    {
+                      "member": "1",
+                      "varName": "",
+                      "role": "101",
+                      "varName2": "912320551232630794",
+                      "branch": {
+                        "iftrue": "2",
+                        "iffalse": "0",
+                        "iftrueVal": "4"
+                      },
+                      "name": "Check If Member has Role"
+                    },
+                    {
+                      "channel": "0",
+                      "varName": "",
+                      "message": "You can't claim tickets!",
+                      "buttons": [],
+                      "selectMenus": [],
+                      "attachments": [],
+                      "embeds": [],
+                      "reply": true,
+                      "ephemeral": true,
+                      "tts": false,
+                      "overwrite": false,
+                      "dontSend": false,
+                      "editMessage": "0",
+                      "editMessageVarName": "",
+                      "storage": "0",
+                      "varName2": "",
+                      "name": "Send Message"
+                    },
+                    {
+                      "name": "End Action Sequence"
+                    },
+                    {
+                      "storage": "3",
+                      "varName": "new-channel",
+                      "permission": "SEND_MESSAGES",
+                      "state": "1",
+                      "reason": "",
+                      "name": "Set Channel Permissions"
+                    },
+                    {
+                      "channel": "0",
+                      "varName": "",
+                      "member": "1",
+                      "varName2": "",
+                      "permission": "SEND_MESSAGES",
+                      "state": "0",
+                      "reason": "",
+                      "name": "Set Member Channel Perms"
+                    },
+                    {
+                      "storage": "0",
+                      "varName": "",
+                      "channelType": "0",
+                      "toChange": "5",
+                      "newState": "912469624589807657",
+                      "name": "Edit Channel"
+                    },
+                    {
+                      "channel": "0",
+                      "varName": "",
+                      "message": "",
+                      "buttons": [],
+                      "selectMenus": [],
+                      "attachments": [],
+                      "embeds": [
+                        {
+                          "title": "Ticket Claimed",
+                          "url": "",
+                          "color": "ec4245",
+                          "timestamp": "false",
+                          "imageUrl": "",
+                          "thumbUrl": "",
+                          "description": "${member} claimed the ticket!",
+                          "fields": [],
+                          "author": "",
+                          "authorUrl": "",
+                          "authorIcon": "",
+                          "footerText": "",
+                          "footerIconUrl": ""
+                        }
+                      ],
+                      "reply": true,
+                      "ephemeral": false,
+                      "tts": false,
+                      "overwrite": false,
+                      "dontSend": false,
+                      "editMessage": "0",
+                      "editMessageVarName": "",
+                      "storage": "0",
+                      "varName2": "",
+                      "name": "Send Message"
+                    },
+                    {
+                      "storage": "0",
+                      "varName": "",
+                      "type": "findButton",
+                      "searchValue": "msg-button-a2723ba",
+                      "name": "Remove Buttons and Selects"
+                    },
+                    {
+                      "member": "0",
+                      "varName": "",
+                      "dataName": "support.claimed",
+                      "changeType": "1",
+                      "value": "1",
+                      "name": "Control Member Data"
+                    },
+                    {
+                      "member": "0",
+                      "varName": "",
+                      "dataName": "question.support",
+                      "changeType": "1",
+                      "value": "1",
+                      "name": "Control Member Data"
+                    },
+                    {
+                      "channel": "103",
+                      "varName": "912647756802301962",
+                      "message": "",
+                      "buttons": [],
+                      "selectMenus": [],
+                      "attachments": [],
+                      "embeds": [
+                        {
+                          "title": "Ticket Claimed",
+                          "url": "",
+                          "color": "5865f2",
+                          "timestamp": "false",
+                          "imageUrl": "",
+                          "thumbUrl": "",
+                          "description": "${tempVars(\"new-channel\")} was claimed by ${member}!",
+                          "fields": [],
+                          "author": "",
+                          "authorUrl": "",
+                          "authorIcon": "",
+                          "footerText": "",
+                          "footerIconUrl": ""
+                        }
+                      ],
+                      "reply": true,
+                      "ephemeral": false,
+                      "tts": false,
+                      "overwrite": false,
+                      "dontSend": false,
+                      "editMessage": "0",
+                      "editMessageVarName": "",
+                      "storage": "0",
+                      "varName2": "",
+                      "name": "Send Message"
+                    }
+                  ]
+                }
+              ],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Report someone",
+                  "url": "",
+                  "color": "16CF00",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "Thank you for contacting support.\nPlease describe your issue and await a response.\n\nAll info we need:\n- MemberID/BotID\n- Proof\n- Reason",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "channel": "103",
+              "varName": "912647756802301962",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "New Ticket",
+                  "url": "",
+                  "color": "16CF00",
+                  "timestamp": "true",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "${member} (${member.tag}) made a ticket!",
+                  "fields": [
+                    {
+                      "name": "Ticket",
+                      "value": "${tempVars(\"new-channel\")}",
+                      "inline": "false"
+                    }
+                  ],
+                  "author": "Report a bot/user!",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            }
+          ]
+        }
+      ],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Click to open a ticket!",
+          "url": "",
+          "color": "5865f2",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Click on the button corresponding to the type of ticket you wish to open!\n\n**❔General enquiry!**\n- Questions that can't be answered in <#912324359702601729> or <#912324426081636362>!\n\n**⚠️Report a bot/user!**\n- Report spam\n- Report Advertising/Self Promoting\n- Report False Information\n- Report Rule Breaks\n",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "channel": "5",
+      "varName": "new-channel",
+      "message": "${member}",
+      "buttons": [
+        {
+          "name": "Close",
+          "type": "DANGER",
+          "id": "msg-button-2e830ba",
+          "row": "",
+          "url": "",
+          "emoji": "🚫",
+          "mode": "MULTI",
+          "time": "",
+          "actions": [
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [
+                {
+                  "name": "Yes",
+                  "type": "DANGER",
+                  "id": "msg-button-c2cf5e9",
+                  "row": "",
+                  "url": "",
+                  "emoji": "✅",
+                  "mode": "PERSONAL",
+                  "time": "",
+                  "actions": [
+                    {
+                      "storage": "0",
+                      "varName": "",
+                      "reason": "",
+                      "name": "Delete Channel"
+                    }
+                  ]
+                }
+              ],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Do you want to close the ticket?",
+                  "url": "",
+                  "color": "ec4245",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "Are you sure you want to close the ticket?",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": true,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "1",
+              "varName2": "message",
+              "name": "Send Message"
+            }
+          ]
+        },
+        {
+          "name": "claim",
+          "type": "SUCCESS",
+          "id": "msg-button-d5bfbf7",
+          "row": "",
+          "url": "",
+          "emoji": "✅",
+          "mode": "MULTI",
+          "time": "",
+          "actions": [
+            {
+              "member": "1",
+              "varName": "",
+              "role": "101",
+              "varName2": "912320551232630794",
+              "branch": {
+                "iftrue": "2",
+                "iffalse": "0",
+                "iftrueVal": "4"
+              },
+              "name": "Check If Member has Role"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "You can't claim tickets!",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [],
+              "reply": true,
+              "ephemeral": true,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "name": "End Action Sequence"
+            },
+            {
+              "storage": "3",
+              "varName": "new-channel",
+              "permission": "SEND_MESSAGES",
+              "state": "1",
+              "reason": "",
+              "name": "Set Channel Permissions"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "member": "1",
+              "varName2": "",
+              "permission": "SEND_MESSAGES",
+              "state": "0",
+              "reason": "",
+              "name": "Set Member Channel Perms"
+            },
+            {
+              "storage": "0",
+              "varName": "",
+              "channelType": "0",
+              "toChange": "5",
+              "newState": "912469624589807657",
+              "name": "Edit Channel"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Ticket Claimed",
+                  "url": "",
+                  "color": "ec4245",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "${member} claimed the ticket!",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "storage": "0",
+              "varName": "",
+              "type": "findButton",
+              "searchValue": "msg-button-a2723ba",
+              "name": "Remove Buttons and Selects"
+            },
+            {
+              "server": "0",
+              "varName": "",
+              "dataName": "support.claimed",
+              "changeType": "1",
+              "value": "1",
+              "name": "Control Server Data"
+            },
+            {
+              "server": "0",
+              "varName": "",
+              "dataName": "question.support",
+              "changeType": "1",
+              "value": "1",
+              "name": "Control Server Data"
+            }
+          ]
+        }
+      ],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Question enquiry!",
+          "url": "",
+          "color": "5865f2",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Thank you for contacting support.\nPlease describe your issue and await a response.\n",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "parameters": [
+    {
+      "name": "Channel",
+      "description": "",
+      "type": "CHANNEL",
+      "required": true,
+      "choices": null
+    }
+  ]
+}

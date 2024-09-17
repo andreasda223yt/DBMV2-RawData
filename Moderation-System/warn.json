@@ -1,0 +1,177 @@
+{
+  "name": "warn",
+  "permissions": "MODERATE_MEMBERS",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "zvHKr",
+  "actions": [
+    {
+      "member": "5",
+      "varName": "user",
+      "info": "1",
+      "storage": "1",
+      "varName2": "user_id",
+      "name": "Store Member Info"
+    },
+    {
+      "filename": "./storeddata/warnings/${tempVars(\"user_id\")}.txt",
+      "iftrue": "3",
+      "iftrueVal": "1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check if File Exists"
+    },
+    {
+      "input": "",
+      "format": ".txt",
+      "filename": "${tempVars(\"user_id\")}",
+      "filepath": "./storeddata/warnings/",
+      "filepath2": "",
+      "filetask": "0",
+      "input2": "",
+      "togglestatus": "no",
+      "name": "File Control"
+    },
+    {
+      "type": "0",
+      "storage": "1",
+      "varName": "year",
+      "name": "Store Time Info"
+    },
+    {
+      "type": "1",
+      "storage": "1",
+      "varName": "month",
+      "name": "Store Time Info"
+    },
+    {
+      "type": "2",
+      "storage": "1",
+      "varName": "day",
+      "name": "Store Time Info"
+    },
+    {
+      "type": "3",
+      "storage": "1",
+      "varName": "hour",
+      "name": "Store Time Info"
+    },
+    {
+      "type": "4",
+      "storage": "1",
+      "varName": "minute",
+      "name": "Store Time Info"
+    },
+    {
+      "type": "5",
+      "storage": "1",
+      "varName": "secound",
+      "name": "Store Time Info"
+    },
+    {
+      "member": "1",
+      "varName": "user",
+      "info": "21",
+      "storage": "1",
+      "varName2": "member_tag",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "user",
+      "info": "1",
+      "storage": "1",
+      "varName2": "member_id",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "5",
+      "varName": "user",
+      "dataName": "warnings.user",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "5",
+      "varName": "user",
+      "dataName": "warnings.user",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "Amountofwarnings",
+      "name": "Store Member Data"
+    },
+    {
+      "input": "**Warning ${tempVars(\"Amountofwarnings\")}**\n\n**Date:** ${tempVars(\"month\")}/${tempVars(\"day\")}/${tempVars(\"year\")}\n**Clock:** ${tempVars(\"hour\")}:${tempVars(\"minute\")}:${tempVars(\"secound\")}\n**Warned By:** <@${tempVars(\"member_id\")}> (${tempVars(\"member_tag\")})\n\n**Reason:** `${slashParams(\"reason\")}`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "format": ".txt",
+      "filename": "${tempVars(\"user_id\")}",
+      "filepath": "./storeddata/warnings/",
+      "filepath2": "",
+      "filetask": "2",
+      "input2": "",
+      "togglestatus": "no",
+      "name": "File Control"
+    },
+    {
+      "member": "5",
+      "varName": "user",
+      "info": "21",
+      "storage": "1",
+      "varName2": "user_tag",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${slashParams(\"user\")}",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "${tempVars(\"user_tag\")} was warned!",
+          "url": "",
+          "color": "2473C7",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Reason: `${slashParams(\"reason\")}`",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "description": "Warn a rule break",
+  "parameters": [
+    {
+      "name": "user",
+      "description": "The user you want to warn!",
+      "type": "USER",
+      "required": true,
+      "choices": null
+    },
+    {
+      "name": "reason",
+      "description": "The reason for this warning!",
+      "type": "STRING",
+      "required": true,
+      "choices": null
+    }
+  ]
+}
